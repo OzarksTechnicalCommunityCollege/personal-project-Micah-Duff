@@ -1,18 +1,23 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+<style>
+    base{
+        background-color: aquamarine;
+    }
+</style>
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static 'css/blog.css' %}" rel="stylesheet">
 </head>
-<body>
+<body class="base">
     <div id="content">
         {% block content %}
         {% endblock %}
     </div>
-    <div id="sidebar">
-        <h2>M.A.D. COMICS</h2>
-        <p>WELCOME TO THE OFFICIAL SITE FOR M.A.D. COMICS</p>
+    <hr>
+    <div id="sidebar" style="text-align: center;">
+        <h2>© Micah Duff    2026</h2>
     </div>
 </body>
 </html>

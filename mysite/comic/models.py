@@ -12,7 +12,7 @@ class Post(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=50)
     # Using ImageField requires install of Pillow (python -m pip install Pillow)
     comic_img = models.ImageField(upload_to='images/') 
     author = models.ForeignKey(
