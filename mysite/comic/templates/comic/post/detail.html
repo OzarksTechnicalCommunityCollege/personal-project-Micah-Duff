@@ -14,4 +14,9 @@
     <hr>
     <p>Published {{ post.publish }} by {{ post.author }}</p>
     {{ post.body|linebreaks }}
+    <p>
+        <a href="{% url 'comic:comic_share' post.id %}">
+            Share this comic!
+        </a>
+    </p>
 {% endblock %}
