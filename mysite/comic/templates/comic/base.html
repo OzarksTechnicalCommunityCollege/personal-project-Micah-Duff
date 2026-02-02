@@ -1,22 +1,17 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<style>
-    base{
-        background-color: aquamarine;
-    }
-</style>
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static 'css/comic.css' %}" rel="stylesheet">
 </head>
 <body class="base">
-    <div id="content">
+    <div id="content" class="wrapper">
         {% block content %}
         {% endblock %}
     </div>
     <hr>
-    <div id="sidebar" style="text-align: center;">
+    <div id="footer" style="text-align: center;">
         <h2>© Micah Duff    2026</h2>
     </div>
 </body>

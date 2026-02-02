@@ -4,6 +4,7 @@ app_name = 'comic'
 urlpatterns = [
     #post views
     path('', views.post_list, name='post_list'),
+    # path('daily_feature/', views.daily_feature, name='daily_feature'),
     path('<int:year>/<int:month>/<int:day>/<slug:post>/',
         views.post_detail,
         name='post_detail'),

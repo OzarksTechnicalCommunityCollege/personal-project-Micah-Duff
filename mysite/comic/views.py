@@ -7,10 +7,12 @@ from django.core.mail import send_mail
 # Create your views here.
 def post_list(request):
     posts = Post.published.all()
+    latest_comic = Post.published.first() # Pulls most recent published objects
     return render(
         request,
         'comic/post/list.html',
-        {'posts': posts}
+        {'latest_comic' : latest_comic,
+        'posts': posts}
     )
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(
@@ -23,9 +25,10 @@ def post_detail(request, year, month, day, post):
     return render (
         request,
         'comic/post/detail.html',
-        {'post' : post}
+        {'post' : post},
     )
 
+# I really liked the idea of email sharing, so i pretty much followed the book and implemented the feature as shown in chapter 2
 def comic_share(request, post_id):
     post = get_object_or_404(
         Post,
