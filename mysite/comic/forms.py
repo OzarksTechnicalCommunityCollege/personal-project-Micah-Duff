@@ -3,7 +3,7 @@ class EmailPostForm(forms.Form):
     name = forms.CharField(max_length=25)
     email = forms.EmailField()
     to = forms.EmailField()
-    comments = forms.CharField(
+    message = forms.CharField(
         required=True,
         widget=forms.Textarea
     )

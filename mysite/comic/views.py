@@ -47,7 +47,7 @@ def comic_share(request, post_id):
                 )
             message = (
                 f"Read {post.title} at {post_url}\n\n"
-                f"{cd['name']}\'s comments: {cd['comments']}"
+                f"{cd['message']}"
                 )
             send_mail(
                 subject=subject,
@@ -66,3 +66,4 @@ def comic_share(request, post_id):
             'form':form
         }
     )
+    
