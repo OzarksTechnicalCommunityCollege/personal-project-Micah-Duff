@@ -7,12 +7,10 @@ from django.core.mail import send_mail
 # Create your views here.
 def post_list(request):
     posts = Post.published.all()
-    latest_comic = Post.published.first() # Pulls most recent published objects
     return render(
         request,
         'comic/post/list.html',
-        {'latest_comic' : latest_comic,
-        'posts': posts}
+        {'posts': posts}
     )
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(

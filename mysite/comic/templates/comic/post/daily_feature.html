@@ -1,0 +1,6 @@
+{% if latest_comic %}
+<div class="daily-feature">
+    <h3>{{ latest_comic.title }}</h3>
+    <img src="{{ latest_comic.comic_img.url }}" alt="{{ latest_comic.slug }}" height="300" width="300">
+</div>
+{% endif %}

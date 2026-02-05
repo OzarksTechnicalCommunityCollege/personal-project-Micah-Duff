@@ -1,10 +1,10 @@
 {% extends "comic/base.html" %}
+{% load comic_tags %}
 {% block title %}MAD COMICS{% endblock %}
 {% block content %}
-    <h1>MAD COMICS</h1>
-    <h2>DAILY FEATURE - {{ latest_comic.title }}</h2>
     <p class="date" style="align-self: center;">
-        <img src="{{ latest_comic.comic_img.url }}" alt="{{ latest_comic.title }}" style="max-width: 300px; max-height: 300px;">
+        <h1>MAD's Daily Feature</h1>
+        {% daily_feature %}
     </p>
     <hr>
     {% for post in posts %}
