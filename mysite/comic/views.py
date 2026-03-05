@@ -3,6 +3,7 @@ from .forms import EmailPostForm
 from .models import Post
 from django.http import Http404
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def post_list(request):
@@ -12,6 +13,7 @@ def post_list(request):
         'comic/post/list.html',
         {'posts': posts}
     )
+
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(
     Post,

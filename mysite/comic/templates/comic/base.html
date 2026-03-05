@@ -7,6 +7,21 @@
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static 'css/comic.css' %}" rel="stylesheet">
 </head>
+    {% if request.user.is_authenticated %}
+        <h1>Greetings, {{ user.username }}!</h1>
+        {% if section == "landing" %}class="selected"{% endif %}
+        <form action="{% url "landing" %}" method="post">
+            <button type="submit">Landing Page</button>
+            {% csrf_token %}
+        </form>
+        <form action="{% url "logout" %}" method="post">
+            <button type="submit">Logout</button>
+            {% csrf_token %}
+        </form>
+    {% else %}
+        <a href="{% url "login" %}">Log-in</a>
+    {% endif %}
+    </span>
 <body class="base">
     <div id="content" class="wrapper">
         {% block content %}

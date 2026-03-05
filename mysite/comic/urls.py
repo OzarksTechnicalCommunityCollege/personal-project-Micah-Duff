@@ -11,5 +11,4 @@ urlpatterns = [
         name='post_detail'),
     path('<int:post_id>/share/', views.comic_share, name='comic_share'),
 
-
 ]

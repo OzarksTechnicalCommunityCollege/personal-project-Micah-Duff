@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}MAD COMICS{% endblock %}
+
+
+{% block content %}
+<h1> Welcome {{user.username}}! Congratulations on successfully logging in!</h1>
+
+<img src="{% static 'images/login.jpg' %}" alt="No image found!" style="max-width:600px; max-height:600px;">
+<form action='{% url "logout" %}' method="post">
+    <button type="submit">Logout</button>
+    {% csrf_token %}
+</form>
+<form action='{% url "comic:post_list" %}' method="post">
+    <button type="submit">Home</button>
+    {% csrf_token %}
+</form>
+
+{% endblock %}
