@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls import include, path
+from django.contrib.auth import views as auth_views
 from . import views
 app_name = 'comic'
 urlpatterns = [
@@ -9,4 +10,6 @@ urlpatterns = [
         views.post_detail,
         name='post_detail'),
     path('<int:post_id>/share/', views.comic_share, name='comic_share'),
+
+
 ]
