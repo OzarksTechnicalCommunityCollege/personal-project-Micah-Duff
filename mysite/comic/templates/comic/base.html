@@ -18,6 +18,7 @@
             <button type="submit">Logout</button>
             {% csrf_token %}
         </form>
+            <button id="special" type="button">Special Feature</button>
     {% else %}
         <a href="{% url "login" %}">Log-in</a>
     {% endif %}
@@ -31,5 +32,24 @@
     <div id="footer" style="text-align: center;">
         <h2>© Micah Duff    2026</h2>
     </div>
+    <script>
+        
+        const specialFeature = document.getElementById("special");
+        const colorArray = ['#ff5377','#ee6611','#af1234','green'];
+        let currentColorIndex = 0;
+        
+        function changeColor(newColor) 
+        {
+            document.body.style.backgroundColor = newColor;
+        }
+        
+        if (specialFeature) 
+        {
+            specialFeature.addEventListener('click', () => {
+                changeColor(colorArray[currentColorIndex]);
+                currentColorIndex = (currentColorIndex + 1) % colorArray.length;
+            });
+        }
+    </script>
 </body>
 </html>

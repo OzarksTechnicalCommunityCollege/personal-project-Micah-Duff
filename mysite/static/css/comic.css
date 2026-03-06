@@ -7,7 +7,6 @@
 body {
     height: 100%;
     background-color: #c0c0c0;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAE0lEQVQIW2P8////fwYGBgZGBgYAMhICZ2ujEeAAAAAASUVORK5CYII=');
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     color: #000000;
     margin: 0;
@@ -67,10 +66,10 @@ header p {
 } */
 
 /* Main content area */
-main {
+/* main {
     padding: 15px;
     background-color: #ffffff;
-}
+} */
 
 
 /* Buttons */
