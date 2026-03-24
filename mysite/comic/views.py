@@ -4,6 +4,8 @@ from .models import Post
 from django.http import Http404
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+import redis
+from django.conf import settings
 
 # Create your views here.
 def post_list(request):
@@ -22,10 +24,14 @@ def post_detail(request, year, month, day, post):
     publish__year=year,
     publish__month=month,
     publish__day=day)
+    total_views= r.incr(f'post:{post.id}:views')
     return render (
         request,
         'comic/post/detail.html',
-        {'post' : post},
+        {   
+            'post' : post,
+            'total_views' : total_views,
+        }
     )
 
 # I really liked the idea of email sharing, so i pretty much followed the book and implemented the feature as shown in chapter 2
@@ -69,3 +75,8 @@ def comic_share(request, post_id):
         }
     )
     
+r = redis.Redis(
+    host = settings.REDIS_HOST,
+    port = settings.REDIS_PORT,
+    db = settings.REDIS_DB
+)

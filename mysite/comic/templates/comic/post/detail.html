@@ -13,6 +13,9 @@
     </p>
     <hr>
     <p>Published {{ post.publish }} by {{ post.author }}</p>
+    <span class="count">
+        {{ total_views }} view{{ total_views|pluralize }}
+    </span>
     {{ post.body|linebreaks }}
     <button>
         <a href="{% url 'comic:comic_share' post.id %}">

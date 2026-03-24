@@ -115,6 +115,9 @@ LOGIN_REDIRECT_URL = 'landing'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
