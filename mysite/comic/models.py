@@ -9,6 +9,14 @@ class PublishedManager(models.Manager):
         return (
             super().get_queryset().filter(status=Post.Status.PUBLISHED)
         )
+    
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+    
+
 class Post(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
@@ -21,6 +29,7 @@ class Post(models.Model):
     )
     # Using ImageField requires install of Pillow (python -m pip install Pillow)
     comic_img = models.ImageField(upload_to='images/') 
+    comic_tag = models.ManyToManyField(Tag, blank=True, related_name='comic_tag')
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -55,9 +64,3 @@ class Post(models.Model):
             ]
         )
 
-class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-
-    def __str__(self):
-        return self.name
-    

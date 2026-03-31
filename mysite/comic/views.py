@@ -16,14 +16,15 @@ def post_list(request):
         {'posts': posts}
     )
 
-def post_detail(request, year, month, day, post):
+def post_detail(request, year, month, day, post, tags):
     post = get_object_or_404(
     Post,
     status = Post.Status.PUBLISHED,
     slug=post,
     publish__year=year,
     publish__month=month,
-    publish__day=day)
+    publish__day=day,
+    tags=tags)
     total_views= r.incr(f'post:{post.id}:views')
     return render (
         request,
