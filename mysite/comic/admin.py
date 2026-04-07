@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Tag
+from .models import Post, Tag, ChangeLog
 # Register your models here.
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -16,3 +16,7 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display=["name"]
+
+@admin.register(ChangeLog)
+class ChangeLogAdmin(admin.ModelAdmin):
+    list_display = ['content_object', 'action', 'timestamp']

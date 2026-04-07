@@ -2,6 +2,9 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+
 
 # Create your models here.
 class PublishedManager(models.Manager):
@@ -64,3 +67,13 @@ class Post(models.Model):
             ]
         )
 
+class ChangeLog(models.Model):
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
+    action = models.CharField(max_length=160)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.action} on {self.content_object} at {self.timestamp:%H:%M}'
