@@ -17,7 +17,7 @@
         {{ total_views }} view{{ total_views|pluralize }}
     </span>
         <span class="tags">
-        Tags: {{ post.comic_tags }}
+        Tags: {{ post.comic_tags.get }}
     </span>
     {{ post.body|linebreaks }}
     <button>
