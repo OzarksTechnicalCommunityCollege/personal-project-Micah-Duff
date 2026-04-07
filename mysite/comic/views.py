@@ -1,10 +1,10 @@
+import redis
 from django.shortcuts import get_object_or_404, render
 from .forms import EmailPostForm
 from .models import Post
 from django.http import Http404
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
-import redis
 from django.conf import settings
 
 # Create your views here.
@@ -16,7 +16,7 @@ def post_list(request):
         {'posts': posts}
     )
 
-def post_detail(request, year, month, day, post, tags):
+def post_detail(request, year, month, day, post):
     post = get_object_or_404(
     Post,
     status = Post.Status.PUBLISHED,
@@ -24,7 +24,10 @@ def post_detail(request, year, month, day, post, tags):
     publish__year=year,
     publish__month=month,
     publish__day=day,
-    tags=tags)
+    )
+
+    tags = post.comic_tags.all()
+    
     total_views= r.incr(f'post:{post.id}:views')
     return render (
         request,

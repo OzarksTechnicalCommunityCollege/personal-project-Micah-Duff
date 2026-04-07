@@ -11,7 +11,7 @@ class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'publish'
     ordering = ['status','publish']
     show_facets = admin.ShowFacets.ALWAYS
-    filter_horizontal = ['comic_tag']
+    filter_horizontal = ['comic_tags']
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):

@@ -29,7 +29,7 @@ class Post(models.Model):
     )
     # Using ImageField requires install of Pillow (python -m pip install Pillow)
     comic_img = models.ImageField(upload_to='images/') 
-    comic_tag = models.ManyToManyField(Tag, blank=True, related_name='comic_tag')
+    comic_tags = models.ManyToManyField(Tag, blank=True, related_name='comic_tags')
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
