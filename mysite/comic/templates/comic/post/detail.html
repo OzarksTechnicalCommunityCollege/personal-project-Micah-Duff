@@ -2,6 +2,10 @@
 {% load static %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
+    <form action='{% url "comic:post_list" %}' method="post">
+        <button type="submit">Home</button>
+        {% csrf_token %}
+    </form>
     <h1>{{ post.title }}</h1>
     <p class="date" style="align-self: center;">
         <!-- Basic handling for if image cant be found or doesnt exist -->
