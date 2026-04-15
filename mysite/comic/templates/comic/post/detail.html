@@ -21,7 +21,11 @@
         {{ total_views }} view{{ total_views|pluralize }}
     </span>
         <span class="tags">
-        Tags: {{ post.comic_tags.get }}
+            {% for tag in post.comic_tags.all %}
+                {{ tag.name }}{% if not forloop.last %}, {% endif %}
+            {% empty %}
+                No tags associated with this post yet!
+            {% endfor %}
     </span>
     {{ post.body|linebreaks }}
     <button>
