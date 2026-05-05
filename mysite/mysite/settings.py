@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'comic.apps.ComicConfig',
+    'merch.apps.MerchConfig',
     'debug_toolbar'
 ]
 
