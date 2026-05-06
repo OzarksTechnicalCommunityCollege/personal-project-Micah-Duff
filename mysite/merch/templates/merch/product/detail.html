@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{ product.title }}{% endblock %}
 {% block content %}
-    <form action='{% url "merch:product_list" %}' method="post">
+    <form action='{% url "comic:post_list" %}' method="post">
         <button type="submit">Home</button>
         {% csrf_token %}
     </form>

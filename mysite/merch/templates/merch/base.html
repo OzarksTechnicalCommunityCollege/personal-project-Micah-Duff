@@ -9,6 +9,10 @@
     {% if request.user.is_authenticated %}
         <h1>Greetings, {{ user.username }}!</h1>
         {% if section == "landing" %}class="selected"{% endif %}
+        <form action='{% url "comic:post_list" %}' method="post">
+        <button type="submit">Home</button>
+        {% csrf_token %}
+        </form>
         <form action="{% url "landing" %}" method="post">
             <button type="submit">Landing Page</button>
             {% csrf_token %}

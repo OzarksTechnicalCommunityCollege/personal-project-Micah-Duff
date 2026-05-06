@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import include, path
 
+# changed url path for comic app to properly have it as the main page when accessing the site
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('comic.urls', namespace='comic')),

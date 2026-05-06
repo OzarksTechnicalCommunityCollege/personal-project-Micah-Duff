@@ -14,6 +14,10 @@
             <button type="submit">Landing Page</button>
             {% csrf_token %}
         </form>
+        <form action='{% url "merch:product_list" %}' method="post">
+        <button type="submit">Merch</button>
+        {% csrf_token %}
+        </form>
         <form action="{% url "logout" %}" method="post">
             <button type="submit">Logout</button>
             {% csrf_token %}
