@@ -4,7 +4,7 @@ from .models import Product, Size
 from django.conf import settings
 
 def product_list(request):
-    products = Product.published.all()
+    products = Product.objects.all()
     return render (
         request,
         'merch/product/list.html',

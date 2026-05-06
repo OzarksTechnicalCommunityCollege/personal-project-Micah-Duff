@@ -1,0 +1,18 @@
+{% extends "merch/base.html" %}
+{% block title %}MAD COMICS MERCH{% endblock %}
+{% block content %}
+<div>
+{% for product in products %}
+    <div>
+        <a href="{% url 'merch:product_detail' product.slug %}">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% endif %}
+            <h3>{{ product.name }}</h3>
+        </a>
+    </div>
+{% empty %}
+</div>
+    <p>No products available.</p>
+{% endfor %}
+{% endblock %}

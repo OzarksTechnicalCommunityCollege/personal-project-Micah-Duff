@@ -1,0 +1,27 @@
+{% extends "merch/base.html"%}
+{% load static %}
+{% block title %}{{ product.title }}{% endblock %}
+{% block content %}
+    <form action='{% url "merch:product_list" %}' method="post">
+        <button type="submit">Home</button>
+        {% csrf_token %}
+    </form>
+    <h1>{{ product.name }}</h1>
+    <p class="date" style="align-self: center;">
+        <!-- Basic handling for if image cant be found or doesnt exist -->
+        {% if product.image and product.image.url %}
+            <img src="{{ product.image.url }}" alt="{{ product.title }}" style="max-width: 300px; max-height: 300px;">
+        {% else %}
+            <img src="{% static 'images/placeholder.png' %}" alt="No image found!">
+        {% endif %}
+    </p>
+    <hr>
+    <div>
+        <p>Price: ${{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <p>Size: {{ product.get_sizes_display }}</p>
+        <button>
+            Add to cart
+        </button>
+    </div>
+{% endblock %}
