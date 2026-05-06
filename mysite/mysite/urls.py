@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('comic.urls', namespace='comic')),
     path('account/', include('account.urls')),
     path('merch/', include('merch.urls')),
+    path('cart/', include('cart.urls', namespace='cart')),
     path('__debug__', include('debug_toolbar.urls')),
 ]
 

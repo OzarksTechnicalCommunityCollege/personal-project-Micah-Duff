@@ -10,3 +10,5 @@ class CartAddProductForm(forms.Form):
         initial=False,
         widget=forms.HiddenInput
     )
+
+#strictly following the book on this for now. may change as see fit later on
