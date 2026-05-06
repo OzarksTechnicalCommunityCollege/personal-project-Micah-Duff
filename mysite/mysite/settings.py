@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'comic.apps.ComicConfig',
     'merch.apps.MerchConfig',
-    'cart.app.CartConfig',
+    'cart.apps.CartConfig',
     'debug_toolbar'
 ]
 
@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -118,6 +119,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LOGIN_REDIRECT_URL = 'landing'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+CART_SESSION_ID = 'cart'
 
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
