@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'comic.apps.ComicConfig',
     'merch.apps.MerchConfig',
+    'cart.app.CartConfig',
     'debug_toolbar'
 ]
 
