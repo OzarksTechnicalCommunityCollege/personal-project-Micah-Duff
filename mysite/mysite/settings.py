@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'comic.apps.ComicConfig',
     'merch.apps.MerchConfig',
     'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
     'debug_toolbar'
 ]
 
